@@ -4,11 +4,10 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Dinamita POS</title>
-  <meta name="theme-color" content="#d00000"/>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <link rel="stylesheet" href="styles.css?v=3.2"/>
+  <link rel="stylesheet" href="styles.css?v=3.3"/>
 </head>
 <body>
 <div id="app">
@@ -16,7 +15,7 @@
     <div class="brand">
       <img id="brandLogo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxODAnIGhlaWdodD0nNDgnIHZpZXdCb3g9JzAgMCAxODAgNDgnPgogIDxyZWN0IHdpZHRoPScxODAnIGhlaWdodD0nNDgnIHJ4PScxMCcgZmlsbD0nI2ZmZmZmZicvPgogIDxyZWN0IHg9JzQnIHk9JzQnIHdpZHRoPScxNzInIGhlaWdodD0nNDAnIHJ4PSc4JyBmaWxsPScjZDAwJyBvcGFjaXR5PScwLjA4Jy8+CiAgPHRleHQgeD0nMTQnIHk9JzMwJyBmb250LXNpemU9JzIwJyBmaWxsPScjMTExJyBmb250LWZhbWlseT0nQXJpYWwgQmxhY2ssIEFyaWFsJz5ESU5BTUlUQTwvdGV4dD4KICA8dGV4dCB4PScxMjAnIHk9JzMwJyBmb250LXNpemU9JzE2JyBmaWxsPScjZDAwJyBmb250LWZhbWlseT0nQXJpYWwgQmxhY2ssIEFyaWFsJz5QT1M8L3RleHQ+Cjwvc3ZnPg==" />
       <div class="brand-title">DINAMITA POS</div>
-      <small class="brand-sub">v3.2 • 2025-08-26 21:27</small>
+      <small class="brand-sub">v3.3 • 2025-08-26 21:47</small>
     </div>
     <nav class="menu">
       <button data-view="dashboard" class="active">🏠 Dashboard</button>
@@ -29,10 +28,15 @@
       <button data-view="config">⚙️ Configuración</button>
       <button data-view="ticket">🧾 Ticket 58mm</button>
     </nav>
+    <div class="sidebar-footer">
+      <small>DINAMITA • v3.3</small>
+    </div>
   </aside>
 
   <main id="main">
+    <div class="backdrop" id="drawerBackdrop"></div>
     <header class="topbar">
+      <button id="hamburger" class="hamburger">☰</button>
       <h1 id="viewTitle">Dashboard</h1>
       <div class="spacer"></div>
       <button id="backupBtn" class="btn small">💾 Exportar respaldo</button>
@@ -183,7 +187,6 @@
       </div>
     </section>
 
-    <!-- Modal Filtros -->
     <div id="modalFiltros" class="modal hidden" aria-hidden="true">
       <div class="modal-content">
         <div class="modal-head">
@@ -205,6 +208,19 @@
   </main>
 </div>
 <script>const DEFAULT_LOGO = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxODAnIGhlaWdodD0nNDgnIHZpZXdCb3g9JzAgMCAxODAgNDgnPgogIDxyZWN0IHdpZHRoPScxODAnIGhlaWdodD0nNDgnIHJ4PScxMCcgZmlsbD0nI2ZmZmZmZicvPgogIDxyZWN0IHg9JzQnIHk9JzQnIHdpZHRoPScxNzInIGhlaWdodD0nNDAnIHJ4PSc4JyBmaWxsPScjZDAwJyBvcGFjaXR5PScwLjA4Jy8+CiAgPHRleHQgeD0nMTQnIHk9JzMwJyBmb250LXNpemU9JzIwJyBmaWxsPScjMTExJyBmb250LWZhbWlseT0nQXJpYWwgQmxhY2ssIEFyaWFsJz5ESU5BTUlUQTwvdGV4dD4KICA8dGV4dCB4PScxMjAnIHk9JzMwJyBmb250LXNpemU9JzE2JyBmaWxsPScjZDAwJyBmb250LWZhbWlseT0nQXJpYWwgQmxhY2ssIEFyaWFsJz5QT1M8L3RleHQ+Cjwvc3ZnPg==";</script>
-<script src="app.js?v=3.2"></script>
+<script src="app.js?v=3.3"></script>
+<script>
+
+// v3.3 drawer toggle
+document.addEventListener('DOMContentLoaded',()=>{{
+  const btn=document.getElementById('hamburger');
+  const bd=document.body;
+  const backdrop=document.getElementById('drawerBackdrop');
+  const close=()=>bd.classList.remove('drawer-open');
+  btn.addEventListener('click',()=>bd.classList.toggle('drawer-open'));
+  backdrop.addEventListener('click',close);
+}});
+
+</script>
 </body>
 </html>
